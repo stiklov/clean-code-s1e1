@@ -43,14 +43,14 @@
   display: flex;
 }
 ul {
-  margin:0;
+  margin: 0;
   padding: 0px;
 }
 li, h3 {
-  list-style:none;
+  list-style: none;
 }
 input,button{
-  outline:none;
+  outline: none;
 }
 .btn {
   background: none;
@@ -144,15 +144,15 @@ input,button{
 
 /* Edit Task */
 .elem .task-input {
-  display:none;
+  display: none;
 }
 
 .edit-mode .task-input {
-  display:inline-block;
-  width:224px;
+  display: inline-block;
+  width: 224px;
 }
 
 .edit-mode .incompleted-label,
 .edit-mode .completed-label {
-  display:none;
+  display: none;
 }
