@@ -33,18 +33,20 @@ var createNewTaskElement=function(taskString){
   var deleteButtonImg=document.createElement("img");//delete button image
 
   label.innerText=taskString;
-  label.className="task";
+  label.className="incompleted-label";
 
   //Each elements, needs appending
   checkBox.type="checkbox";
+  checkBox.className="checkbox";
   editInput.type="text";
-  editInput.className="task";
+  editInput.className="task-input";
 
   editButton.innerText="Edit"; //innerText encodes special characters, HTML does not.
-  editButton.className="edit-btn";
+  editButton.className="edit-btn btn";
 
-  deleteButton.className="delete-btn";
+  deleteButton.className="delete-btn btn";
   deleteButtonImg.src="./remove.svg";
+  deleteButtonImg.className="remove-img";
   deleteButton.appendChild(deleteButtonImg);
 
 
@@ -66,6 +68,7 @@ var addTask=function(){
   var listItem=createNewTaskElement(taskInput.value);
 
   //Append listItem to incompleteTaskHolder
+  listItem.classList.add("elem");
   incompleteTaskHolder.appendChild(listItem);
   bindTaskEvents(listItem, taskCompleted);
 
@@ -121,6 +124,7 @@ var taskCompleted=function(){
 
   //Append the task list item to the #completed-tasks
   var listItem=this.parentNode;
+  listItem.children[1].classList.replace("incompleted-label", "completed-label");
   completedTasksHolder.appendChild(listItem);
   bindTaskEvents(listItem, taskIncomplete);
 
@@ -133,6 +137,7 @@ var taskIncomplete=function(){
   //When the checkbox is unchecked
   //Append the task list item to the #incompleteTasks.
   var listItem=this.parentNode;
+  listItem.children[1].classList.replace("completed-label", "incompleted-label");
   incompleteTaskHolder.appendChild(listItem);
   bindTaskEvents(listItem,taskCompleted);
 }
@@ -155,7 +160,7 @@ addButton.addEventListener("click",ajaxRequest);
 var bindTaskEvents=function(taskListItem,checkBoxEventHandler){
   console.log("bind list item events");
   //select ListItems children
-  var checkBox=taskListItem.querySelector("input[type=checkbox]");
+  var checkBox=taskListItem.querySelector(".checkbox");
   var editButton=taskListItem.querySelector("button.edit-btn");
   var deleteButton=taskListItem.querySelector("button.delete-btn");
 
