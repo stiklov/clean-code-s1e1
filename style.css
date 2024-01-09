@@ -49,6 +49,10 @@
   display: flex;
 }
 
+.add-items-container {
+    margin: 16px 0;
+}
+
 /* default styles */
 ul {
   margin: 0;
