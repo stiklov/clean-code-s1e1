@@ -35,9 +35,9 @@
 
 .completed-label,
 .incompleted-label {
-    width: 56%;
-    display: inline-block;
-    flex-grow: 1;
+  width: 56%;
+  display: inline-block;
+  flex-grow: 1;
 }
 .add-items-block {
   display: flex;
